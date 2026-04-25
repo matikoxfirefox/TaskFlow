@@ -9,29 +9,38 @@
 <!--Górny pasek z narzędziami-->
     <nav>
         <button id="listWrap" class="nav-btns">Lista</button>
-        <button id="dlMode" class="nav-btns">DL</button>
-        <button id="settings" class="nav-btns">Ustawienia</button>
+        <div id="rBtns">
+            <button id="dlMode" class="nav-btns">DL</button>
+            <button id="settings" class="nav-btns">Ustawienia</button>
+        </div>
     </nav>
 <!--Część dla uzytkownika i kategorii tasków-->
-    <aside>
-        <section id="user">
-            <div id="userPhoto">
-                <img id="usPhoto" src="Assets/profile.png" alt="userPhoto">
-            </div>
-            <div id="userMail">
-                <p>ExampleUserMail@gmail.com</p>
-            </div>
-        </section>
-        <section id="categoties">
-            <!--In progress...-->
-        </section>
-    </aside>
-<!--Główny element z taskami-->
     <main>
-        <div id="pending" class="taskLists"><h3>Oczekujące</h3></div>
-        <div id="inProgress" class="taskLists"><h3>W trakcie</h3></div>
-        <div id="completed" class="taskLists"><h3>Skończone</h3></div>
+        <aside>
+            <section id="user">
+                <div id="userPhoto">
+                    <img id="usPhoto" src="Assets/profile.png" alt="userPhoto">
+                </div>
+                <div id="userMail">
+                    <p>ExampleUserMail@gmail.com</p>
+                </div>
+            </section>
+            <section id="categoties">
+                <!--In progress...-->
+            </section>
+        </aside>
+    <!--Główny element z taskami-->
+        <section id="taskSection">
+            <form id="addTask">
+                <input type="text" name="taskTitle" id="taskTitle" placeholder="Tytuł">
+                <textarea type="text" name="taskDesc" id="taskDesc" placeholder="Opis"
+                cols="20" rows="20"></textarea>
+            </form>
+            <div id="pending" class="taskLists"><h3>Oczekujące</h3></div>
+            <div id="inProgress" class="taskLists"><h3>W trakcie</h3></div>
+            <div id="completed" class="taskLists"><h3>Skończone</h3></div>
+        </section>
     </main>
-
+<script src="TaskFlow.js"></script>
 </body>
 </html>

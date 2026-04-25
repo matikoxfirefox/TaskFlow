@@ -3,15 +3,41 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Monospaced, Geneva, Tahoma, sans-serif;
+
+}
+body {
+    background-color: ghostwhite;
 }
 :root {
     /*--navbar: ;*/
 }
 /* ----- Navbar ----- */
-
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+/* ----- Main ----- */
+main {
+    display: flex;
+    justify-content: space-between;
+    height: 100vh;
+}
 /* ----- Aside ----- */
+aside {
+    flex: 1;
+}
 #usPhoto {
     height: 200px;
     width: 200px;
 }
-/* ----- Main ----- */
+/* ----- taskSection ----- */
+#taskSection {
+    display: flex;
+    flex: 3;
+    justify-content: space-around;
+    align-items: center;
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
