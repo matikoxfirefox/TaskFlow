@@ -25,6 +25,7 @@ main {
 /* ----- Aside ----- */
 aside {
     flex: 1;
+    background-color: #9e92a8;
 }
 #usPhoto {
     height: 200px;
@@ -36,8 +37,12 @@ aside {
     flex: 3;
     justify-content: space-around;
     align-items: center;
+    background-color: #8daea9;
 }
 form {
     display: flex;
     flex-direction: column;
+}
+#addTask {
+    backdrop-filter: blur(20px);
 }

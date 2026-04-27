@@ -36,9 +36,33 @@
                 <textarea type="text" name="taskDesc" id="taskDesc" placeholder="Opis"
                 cols="20" rows="20"></textarea>
             </form>
-            <div id="pending" class="taskLists"><h3>Oczekujące</h3></div>
-            <div id="inProgress" class="taskLists"><h3>W trakcie</h3></div>
-            <div id="completed" class="taskLists"><h3>Skończone</h3></div>
+            <div id="pending" class="taskLists">
+                <h3>Oczekujące</h3>
+                <ul id="pendingList" style="list-style: none;">
+                    <li>Example 1</li>
+                    <li>Example 2</li>
+                    <li>Example 3</li>
+                    <li>Example 4</li>
+                </ul>
+            </div>
+            <div id="inProgress" class="taskLists">
+                <h3>W trakcie</h3>
+                <ul id="inProgressList" style="list-style: none;">
+                    <li>Example 1</li>
+                    <li>Example 2</li>
+                    <li>Example 3</li>
+                    <li>Example 4</li>
+                </ul>
+            </div>
+            <div id="completed" class="taskLists">
+                <h3>Skończone</h3>
+                <ul id="completedList" style="list-style: none;">
+                    <li>Example 1</li>
+                    <li>Example 2</li>
+                    <li>Example 3</li>
+                    <li>Example 4</li>
+                </ul>
+            </div>
         </section>
     </main>
 <script src="TaskFlow.js"></script>
