@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>TaskFlow</title>
     <link rel="stylesheet" href="TaskFlow.css">
+    <link rel="shortcut icon" href="Assets/favicon.ico" type="image/x-icon">
 </head>
 <body>
 <!--Górny pasek z narzędziami-->
@@ -23,7 +24,8 @@
                 </div>
                 <div id="userInfo">
                     <h3 id="userName">User Name</h3>
-                    <p id="userMail">ExampleUserMail@gmail.com</p>
+                    <hr>
+                    <p id="userMail">ExamplerUserMail@gmail.com</p>
                 </div>
             </section>
             <section id="categoties">
@@ -32,12 +34,13 @@
         </aside>
     <!--Główny element z taskami-->
         <section id="taskSection">
-            <form id="addTask">
-                <input type="text" name="taskTitle" id="taskTitle" placeholder="Tytuł">
+            <div id="createTask">
+                <input type="text" name="taskTitle" id="taskTitle" required placeholder="Tytuł">
                 <!--suppress HtmlUnknownAttribute -->
                 <textarea type="text" name="taskDesc" id="taskDesc" placeholder="Opis"
-                cols="20" rows="20"></textarea>
-            </form>
+                cols="20" rows="20" ></textarea>
+                <button id="addTask">Dodaj</button>
+            </div>
             <div id="pending" class="taskLists">
                 <h3 style="padding-top: 5px">Oczekujące</h3>
                 <hr>
@@ -48,61 +51,6 @@
                         <li>Example 3</li>
                         <li>Example 4</li>
                         <li>Example 1</li>
-                        <li>Example 2</li>
-                        <li>Example 3</li>
-                        <li>Example 4</li>
-                        <li>Example 1</li>
-                        <li>Example 2</li>
-                        <li>Example 3</li>
-                        <li>Example 4</li>
-                        <li>Example 1</li>
-                        <li>Example 2</li>
-                        <li>Example 3</li>
-                        <li>Example 4</li>
-                        <li>Example 1</li>
-                        <li>Example 2</li>
-                        <li>Example 3</li>
-                        <li>Example 4</li>
-                        <li>Example 1</li>
-                        <li>Example 2</li>
-                        <li>Example 3</li>
-                        <li>Example 4</li>
-                        <li>Example 1</li>
-                        <li>Example 2</li>
-                        <li>Example 3</li>
-                        <li>Example 4</li>
-                        <li>Example 1</li>
-                        <li>Example 2</li>
-                        <li>Example 3</li>
-                        <li>Example 4</li>
-                        <li>Example 1</li>
-                        <li>Example 2</li>
-                        <li>Example 3</li>
-                        <li>Example 4</li>
-                        <li>Example 1</li>
-                        <li>Example 2</li>
-                        <li>Example 3</li>
-                        <li>Example 4</li>
-                        <li>Example 1</li>
-                        <li>Example 2</li>
-                        <li>Example 3</li>
-                        <li>Example 4</li>
-                        <li>Example 1</li>
-                        <li>Example 2</li>
-                        <li>Example 3</li>
-                        <li>Example 4</li>
-                        <li>Example 1</li>
-                        <li>Example 2</li>
-                        <li>Example 3</li>
-                        <li>Example 4</li>
-                        <li>Example 1</li>
-                        <li>Example 2</li>
-                        <li>Example 3</li>
-                        <li>Example 4</li>
-                        <li>Example 1</li>
-                        <li>Example 2</li>
-                        <li>Example 3</li>
-                        <li>Example 4</li>
                     </ul>
                 </div>
             </div>

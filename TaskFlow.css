@@ -27,10 +27,24 @@ main {
 aside {
     flex: 1;
     background-color: #9e92a8;
+    max-width: 25%;
+}
+#user {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 2%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    overflow-x: hidden;
+}
+#userInfo hr {
+    max-width: 75%;
 }
 #usPhoto {
-    height: 200px;
-    width: 200px;
+    height: 100px;
+    width: 100px;
 }
 /* ----- taskSection ----- */
 #taskSection {
@@ -44,17 +58,21 @@ aside {
     width: 75%;
 }
 
-#addTask {
+#createTask {
     display: flex;
     flex-direction: column;
-    border: 1px red solid;
+    border: 1px black solid;
+    box-shadow: 10px 10px 10px 0px gray;
+    border-radius: 10px;
     padding: 2px;
+    gap: 5px;
 }
 #taskTitle {
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px;
 }
 #taskDesc {
-    border-radius: 0 0 10px 10px;
+    display: flex;
+    border-radius: 10px;
 }
 .taskLists {
     border: 1px solid black;
