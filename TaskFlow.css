@@ -55,7 +55,7 @@ aside {
     background-color: #8daea9;
     
 }
-#pendingList li button  {
+.listClass li button  {
     display: flex;
     flex-direction: column;
     width: 90px;
@@ -63,9 +63,8 @@ aside {
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    border-style: none;
 } 
-#pendingList li {
+.listClass li {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -74,7 +73,7 @@ aside {
     border: 1px solid black;
     padding: 5px;
 } 
-#pendingDiv  {
+.taskBox  {
     display: flex;  
     gap: 10%;
 } 
