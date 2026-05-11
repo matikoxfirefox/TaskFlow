@@ -9,7 +9,7 @@ let taskArr = [];
 window.onload = () => {
     if(taskArr.length == 0) {
     const lsList = JSON.parse(localStorage.getItem("tasks"));
-    taskArr = lsList;
+    taskArr = lsList || [];
     renderTask();
     }
 }
