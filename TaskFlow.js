@@ -4,7 +4,16 @@ const addTask = document.querySelector("#addTask");
 const pendingList = document.querySelector("#pendingList");
 const inProgressList = document.querySelector("#inProgressList");
 const completedList = document.querySelector("#completedList");
-const taskArr = [];
+let taskArr = [];
+
+window.onload = () => {
+    if(taskArr.length == 0) {
+    const lsList = JSON.parse(localStorage.getItem("tasks"));
+    taskArr = lsList;
+    renderTask();
+    }
+}
+
 addTask.addEventListener('click', ()=> {
     const tdVal = taskDesc.value;
     const ttVal = taskTitle.value;
@@ -69,6 +78,7 @@ function renderTask() {
         }
         changeStatus(arrEl, newLi)
     }) 
+    localStorage.setItem("tasks", JSON.stringify(taskArr));
 }
 
 function changeStatus(arrEl, newLi){
