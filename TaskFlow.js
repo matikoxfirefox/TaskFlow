@@ -80,7 +80,6 @@ function renderTask() {
     }) 
     localStorage.setItem("tasks", JSON.stringify(taskArr));
 }
-
 function changeStatus(arrEl, newLi){
     if (arrEl.status === "pending") {
         newLi.querySelector(".inProgressBtn").addEventListener('click', ()=>{
