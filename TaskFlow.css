@@ -115,3 +115,55 @@ aside {
     overflow-y: auto;
     max-height: 90%;
 }
+#modal {
+    display: none;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+#modalWindow {
+    background-color: whitesmoke;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid black;
+    width: 25%;
+    height: 45%;
+    border-radius: 3%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+}
+#closeModal {
+    position: absolute;
+    right: 5%;
+}
+#modalTitle {
+    border: 2px solid black;
+    height: 40px;
+    margin-top: 5%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#modalDescription {
+    border: 2px solid black;
+    height: 65%;
+    width: 90%;
+    border-radius: 2%;
+    padding: 5px;
+    word-wrap: break-word;
+}
+#deleteTask {
+    width: 70%;
+    height: 20px;
+    position: absolute;
+    bottom: 5%;
+    border-radius: 5px;
+}

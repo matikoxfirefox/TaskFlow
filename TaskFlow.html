@@ -38,7 +38,7 @@
                 <input type="text" name="taskTitle" id="taskTitle" required placeholder="Tytuł" maxlength="20">
                 <!--suppress HtmlUnknownAttribute -->
                 <textarea type="text" name="taskDesc" id="taskDesc" placeholder="Opis"
-                cols="20" rows="20" ></textarea>
+                cols="20" rows="20" maxlength="583" ></textarea>
                 <button id="addTask">Dodaj</button>
             </div>
             <div id="pending" class="taskLists">
@@ -63,6 +63,14 @@
                 <div class="taskUlList">
                     <ul id="completedList" class="listClass"  style="list-style: none;">
                     </ul>
+                </div>
+            </div>
+            <div id="modal">
+                <div id="modalWindow">
+                    <button id="closeModal">&times;</button>
+                    <div id="modalTitle"></div>
+                    <div id="modalDescription"></div>
+                    <button id="deleteTask">Usuń</button>
                 </div>
             </div>
         </section>

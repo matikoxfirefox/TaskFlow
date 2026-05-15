@@ -4,6 +4,12 @@ const addTask = document.querySelector("#addTask");
 const pendingList = document.querySelector("#pendingList");
 const inProgressList = document.querySelector("#inProgressList");
 const completedList = document.querySelector("#completedList");
+const closeModal = document.querySelector("#closeModal");
+const modalTitle = document.querySelector("#modalTitle");
+const modalDescription = document.querySelector("#modalDescription");
+const deleteTask = document.querySelector("#deleteTask");
+const modal = document.querySelector("#modal");
+
 let taskArr = [];
 
 window.onload = () => {
@@ -30,7 +36,6 @@ addTask.addEventListener('click', ()=> {
         status: "pending"
     }
     taskArr.push(task);
-    console.log(taskArr);
     renderTask();
 })
 
@@ -77,6 +82,7 @@ function renderTask() {
             completedList.appendChild(newLi);
         }
         changeStatus(arrEl, newLi)
+        showModal(arrEl, newLi);
     }) 
     localStorage.setItem("tasks", JSON.stringify(taskArr));
 }
@@ -117,4 +123,19 @@ function changeStatus(arrEl, newLi){
             renderTask();
         })
     }
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+closeModal.addEventListener("click", ()=> {
+    modal.style.display = "none";
+})
+function showModal(modalEl,newLi){
+    newLi.addEventListener("click", ()=>{
+        modal.style.display = "block";
+        modalTitle.innerHTML = modalEl.title;
+        modalDescription.innerHTML = modalEl.description;
+    })
 }
