@@ -42,10 +42,16 @@ aside {
 #userInfo hr {
     max-width: 75%;
 }
+#userInfo {
+    word-wrap: break-word;
+    min-width: 0;
+}
 #usPhoto {
     height: 100px;
     width: 100px;
+    margin-right: 5%;
 }
+
 /* ----- taskSection ----- */
 #taskSection {
     display: flex;
