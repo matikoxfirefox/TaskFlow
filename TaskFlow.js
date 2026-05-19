@@ -47,37 +47,28 @@ function renderTask() {
     taskArr.forEach((arrEl) => {
         const newLi = document.createElement("li");
         const taskBox = document.createElement("div");
-        const pendingBtn = document.createElement("button");
-        const inProgressBtn = document.createElement("button");
-        const completedBtn = document.createElement("button");
+        const modalBtn = document.createElement("button");
 
         newLi.innerHTML = arrEl.title;
-        pendingBtn.classList.add("pendingBtn");
-        inProgressBtn.classList.add("inProgressBtn");
-        completedBtn.classList.add("completedBtn");
+        modalBtn.classList.add("modalBtn");
         taskBox.classList.add("taskBox");
+        newLi.draggable = true;
 
         if (arrEl.status === "pending") {
-            inProgressBtn.textContent = "W trakcie";
-            completedBtn.textContent = "Ukończone";
-            taskBox.appendChild(inProgressBtn);
-            taskBox.appendChild(completedBtn);
+            modalBtn.textContent = "Szczegóły";
+            taskBox.appendChild(modalBtn);
             newLi.appendChild(taskBox);
             pendingList.appendChild(newLi);
         }
         if (arrEl.status === "inProgress") {
-            pendingBtn.textContent = "Oczekujące";
-            completedBtn.textContent = "Ukończone";
-            taskBox.appendChild(pendingBtn);
-            taskBox.appendChild(completedBtn);
+            modalBtn.textContent = "Szczegóły";
+            taskBox.appendChild(modalBtn);
             newLi.appendChild(taskBox);
             inProgressList.appendChild(newLi);
         }
         if (arrEl.status === "completed") {
-            pendingBtn.textContent = "Oczekujące";
-            inProgressBtn.textContent = "W trakcie";
-            taskBox.appendChild(inProgressBtn);
-            taskBox.appendChild(pendingBtn);
+            modalBtn.textContent = "Szczegóły";
+            taskBox.appendChild(modalBtn);
             newLi.appendChild(taskBox);
             completedList.appendChild(newLi);
         }
@@ -87,58 +78,21 @@ function renderTask() {
     localStorage.setItem("tasks", JSON.stringify(taskArr));
 }
 function changeStatus(arrEl, newLi) {
-    if (arrEl.status === "pending") {
-        newLi.querySelector(".inProgressBtn").addEventListener('click', () => {
-            event.stopPropagation();
-            arrEl.status = "inProgress";
-            renderTask();
-        })
-        newLi.querySelector(".completedBtn").addEventListener('click', () => {
-            event.stopPropagation();
-            arrEl.status = "completed";
-            renderTask();
-        })
-    }
-    if (arrEl.status === "inProgress") {
-        newLi.querySelector(".completedBtn").addEventListener('click', () => {
-            event.stopPropagation();
-            arrEl.status = "completed";
-            renderTask();
-        })
-        newLi.querySelector(".pendingBtn").addEventListener('click', () => {
-            event.stopPropagation();
-            arrEl.status = "pending";
-            renderTask();
-        })
-    }
-    if (arrEl.status === "completed") {
-        newLi.querySelector(".inProgressBtn").addEventListener('click', () => {
-            event.stopPropagation();
-            arrEl.status = "inProgress";
-            renderTask();
-        })
-        newLi.querySelector(".pendingBtn").addEventListener('click', () => {
-            event.stopPropagation();
-            arrEl.status = "pending";
-            renderTask();
-        })
-    }
+    
 }
 function showModal(modalEl, newLi) {
-    newLi.addEventListener("click", () => {
+    newLi.querySelector(".modalBtn").addEventListener("click", () => {
+        event.stopPropagation();
         modal.style.display = "block";
         modalTitle.innerHTML = modalEl.title;
         modalDescription.innerHTML = modalEl.description;
-        deleteTask.addEventListener("click", ()=>{
-            const tempArr = taskArr.filter((task) => task.id !== modalEl.id)
-            taskArr = [];
-            taskArr = tempArr;
+        deleteTask.addEventListener("click", ()=> {
+            taskArr = taskArr.filter((task) => task.id !== modalEl.id);
             modal.style.display = "none";
             renderTask();
         })
     })
 };
-
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";

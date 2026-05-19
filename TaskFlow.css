@@ -61,7 +61,7 @@ aside {
     background-color: #8daea9;
     
 }
-.listClass li button  {
+.listClass li button {
     display: flex;
     flex-direction: column;
     width: 90px;
@@ -70,6 +70,7 @@ aside {
     align-items: center;
     border-radius: 5px;
 } 
+
 .listClass li {
     display: flex;
     flex-direction: column;
