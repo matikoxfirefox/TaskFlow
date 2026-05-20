@@ -45,7 +45,7 @@
                 <h3 style="padding-top: 5px">Oczekujące</h3>
                 <hr>
                 <div class="taskUlList">
-                    <ul id="pendingList" class="listClass" style="list-style: none;">
+                    <ul id="pendingList" class="listClass" style="list-style: none;" ondrop="changeStatus(event)" ondragover="oDrop(event)" >
                     </ul>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                 <h3 style="padding-top: 5px">W trakcie</h3>
                 <hr>
                 <div class="taskUlList">
-                    <ul id="inProgressList" class="listClass"  style="list-style: none;">
+                    <ul id="inProgressList" class="listClass"  style="list-style: none;" ondrop="changeStatus(event)" ondragover="oDrop(event)" >
                     </ul>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                 <h3 style="padding-top: 5px">Skończone</h3>
                 <hr>
                 <div class="taskUlList">
-                    <ul id="completedList" class="listClass"  style="list-style: none;">
+                    <ul id="completedList" class="listClass"  style="list-style: none;" ondrop="changeStatus(event)" ondragover="oDrop(event)" >
                     </ul>
                 </div>
             </div>

@@ -71,6 +71,11 @@ aside {
     border-radius: 5px;
 } 
 
+.listClass {
+    min-height: 100px;
+    width: 100%;
+    height: 100vh;
+}
 .listClass li {
     display: flex;
     flex-direction: column;
@@ -79,7 +84,11 @@ aside {
     margin-top: 5px;
     border: 1px solid black;
     padding: 5px;
+    cursor: grab;
 } 
+.listClass li:active {
+    cursor: grabbing;
+}
 .taskBox  {
     display: flex;  
     gap: 10%;
@@ -115,6 +124,7 @@ aside {
     align-items: center;
     gap: 1rem;
 }
+
 .taskUlList {
     display: flex;
     flex-direction: column;

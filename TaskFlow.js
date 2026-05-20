@@ -10,7 +10,7 @@ const modalDescription = document.querySelector("#modalDescription");
 const deleteTask = document.querySelector("#deleteTask");
 const modal = document.querySelector("#modal");
 let taskArr = [];
-
+let holderItem;
 window.onload = () => {
     if (taskArr.length == 0) {
         const lsList = JSON.parse(localStorage.getItem("tasks"));
@@ -43,16 +43,16 @@ function renderTask() {
     pendingList.innerHTML = "";
     inProgressList.innerHTML = "";
     completedList.innerHTML = "";
-
     taskArr.forEach((arrEl) => {
         const newLi = document.createElement("li");
+        newLi.dataset.id = arrEl.id
         const taskBox = document.createElement("div");
         const modalBtn = document.createElement("button");
-
         newLi.innerHTML = arrEl.title;
         modalBtn.classList.add("modalBtn");
         taskBox.classList.add("taskBox");
         newLi.draggable = true;
+        newLi.addEventListener("dragstart", dStart)
 
         if (arrEl.status === "pending") {
             modalBtn.textContent = "Szczegóły";
@@ -72,13 +72,36 @@ function renderTask() {
             newLi.appendChild(taskBox);
             completedList.appendChild(newLi);
         }
-        changeStatus(arrEl, newLi)
         showModal(arrEl, newLi);
     })
     localStorage.setItem("tasks", JSON.stringify(taskArr));
 }
-function changeStatus(arrEl, newLi) {
-    
+function oDrop (event){
+    event.preventDefault();
+}
+function dStart (event){
+    holderItem = event.target;
+}
+function changeStatus(event) {
+    event.preventDefault();
+    const targetList = event.currentTarget;
+    const taskId = holderItem.dataset.id;
+    const task = taskArr.find(t => t.id == taskId);
+    if(targetList && targetList.id === "pendingList") {
+        event.target.appendChild(holderItem);
+        task.status = "pending";
+        renderTask();
+    }
+    if(targetList && targetList.id === "inProgressList") {
+        event.target.appendChild(holderItem);
+        task.status = "inProgress";
+        renderTask();
+    }
+    if(targetList && targetList.id === "completedList") {
+        event.target.appendChild(holderItem);
+        task.status = "completed";
+        renderTask();
+    }
 }
 function showModal(modalEl, newLi) {
     newLi.querySelector(".modalBtn").addEventListener("click", () => {
