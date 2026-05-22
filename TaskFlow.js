@@ -11,6 +11,7 @@ const deleteTask = document.querySelector("#deleteTask");
 const modal = document.querySelector("#modal");
 let taskArr = [];
 let holderItem;
+
 window.onload = () => {
     if (taskArr.length == 0) {
         const lsList = JSON.parse(localStorage.getItem("tasks"));
