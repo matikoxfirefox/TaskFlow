@@ -6,14 +6,15 @@
 
 }
 :root {
-    --mainBackground:#E8EEFA;
+    --mainBackground:#C2C9CC;
     --elementsBacground:#507ADC;
-    --completed: #43719A;
-    --inProgress: #5992C6;
-    --pending: #8CB7DF;
+    --completed: #507ADC;
+    --inProgress: #7FA0E5;
+    --pending: #B3C7F0;
     --completedLi: #43719A;
     --inProgressLi: #5992C6;
     --pendingLi: #8CB7DF;
+    --shadow:#383B3D;
 }
 /* ----- Navbar ----- */
 nav {
@@ -21,6 +22,11 @@ nav {
     justify-content: space-between;
     height: 5vh;
     background-color: var(--mainBackground);
+}
+nav button {
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
 }
 /* ----- Main ----- */
 main {
@@ -40,7 +46,7 @@ aside {
     margin: 5%;
     height: 95%;
     border-radius: 7px;
-    box-shadow: 5px 5px 5px 5px #383B3D;
+    box-shadow: 5px 5px 5px 5px var(--shadow);
     background-color: var(--elementsBacground);
 }
 #user {
@@ -48,20 +54,34 @@ aside {
     align-items: center;
     padding: 10px;
     gap: 2%;
-    margin: 10px;
     overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
 #userInfo hr {
     max-width: 75%;
+    border: none;
+    border-top: 2px solid white;
+    width: 75%;
 }
 #userInfo {
     word-wrap: break-word;
     min-width: 0;
+    font-size: smaller;
 }
 #usPhoto {
-    height: 100px;
-    width: 100px;
-    margin-right: 5%;
+    height: 75px;
+    width: 75px;
+    margin-right: 10px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+#usrHr {
+    border: none;
+    border-top: 2px solid white;
+    width: 85%;
+    margin: 5px auto;
 }
 
 /* ----- taskSection ----- */
@@ -123,7 +143,7 @@ aside {
     display: flex;
     flex-direction: column;
     border: 1px black solid;
-    box-shadow: 10px 10px 10px 0px gray;
+    box-shadow: 10px 10px 10px 0px var(--shadow);
     border-radius: 10px;
     padding: 2px;
     gap: 5px;
@@ -145,6 +165,7 @@ aside {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    box-shadow: 10px 10px 10px 0 var(--shadow);
 }
 
 .taskUlList {
