@@ -5,17 +5,22 @@
     font-family: Monospaced, Geneva, Tahoma, sans-serif;
 
 }
-body {
-    background-color: ghostwhite;
-}
 :root {
-    /*--navbar: ;*/
+    --mainBackground:#E8EEFA;
+    --elementsBacground:#507ADC;
+    --completed: #43719A;
+    --inProgress: #5992C6;
+    --pending: #8CB7DF;
+    --completedLi: #43719A;
+    --inProgressLi: #5992C6;
+    --pendingLi: #8CB7DF;
 }
 /* ----- Navbar ----- */
 nav {
     display: flex;
     justify-content: space-between;
     height: 5vh;
+    background-color: var(--mainBackground);
 }
 /* ----- Main ----- */
 main {
@@ -26,16 +31,23 @@ main {
 /* ----- Aside ----- */
 aside {
     flex: 1;
-    background-color: #9e92a8;
+    background-color: var(--mainBackground);
     max-width: 25%;
+    height: 95vh;
+}
+#asideBox {
+    border: 2px solid black;
+    margin: 5%;
+    height: 95%;
+    border-radius: 7px;
+    box-shadow: 5px 5px 5px 5px #383B3D;
+    background-color: var(--elementsBacground);
 }
 #user {
     display: flex;
     align-items: center;
     padding: 10px;
     gap: 2%;
-    border: 1px solid black;
-    border-radius: 10px;
     margin: 10px;
     overflow-x: hidden;
 }
@@ -58,8 +70,17 @@ aside {
     flex: 3;
     justify-content: space-around;
     align-items: center;
-    background-color: #8daea9;
+    background-color: var(--mainBackground);
     
+}
+#pending {
+    background-color: var(--pending);
+}
+#inProgress {
+    background-color: var(--inProgress);
+}
+#completed {
+    background-color: var(--completed);
 }
 .listClass li button {
     display: flex;
@@ -106,6 +127,7 @@ aside {
     border-radius: 10px;
     padding: 2px;
     gap: 5px;
+    background-color: var(--elementsBacground);
 }
 #taskTitle {
     border-radius: 10px;
@@ -183,4 +205,7 @@ aside {
     position: absolute;
     bottom: 5%;
     border-radius: 5px;
+}
+.modalBtn, .closeModal, #deleteTask {
+    cursor: pointer;
 }

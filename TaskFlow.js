@@ -9,6 +9,7 @@ const modalTitle = document.querySelector("#modalTitle");
 const modalDescription = document.querySelector("#modalDescription");
 const deleteTask = document.querySelector("#deleteTask");
 const modal = document.querySelector("#modal");
+closeModal.classList.add("closeModal")
 let taskArr = [];
 let holderItem;
 
@@ -125,3 +126,4 @@ window.onclick = function (event) {
 closeModal.addEventListener("click", () => {
     modal.style.display = "none";
 })
+JSON.parse(localStorage.getItem("tasks"))
