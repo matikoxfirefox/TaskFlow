@@ -3,85 +3,166 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Monospaced, Geneva, Tahoma, sans-serif;
+}
 
-}
 :root {
-    --mainBackground:#C2C9CC;
-    --elementsBacground:#507ADC;
-    --completed: #507ADC;
-    --inProgress: #7FA0E5;
-    --pending: #B3C7F0;
-    --completedLi: #43719A;
-    --inProgressLi: #5992C6;
-    --pendingLi: #8CB7DF;
-    --shadow:#383B3D;
+    --bodyBackground1: #2c2c2c;
+    --bodyBackground2: #2c2c2c;
+    --elementsBackground: #252525;
+    --completed: #382929;
+    --inProgress: #2c2c42;
+    --pending: #213021;
+    --completedLi: #3a2a2a;
+    --inProgressLi: #2a2a3a;
+    --pendingLi: #2a3a2a;
+    --shadow: rgba(0,0,0,0.4);
+    --font: #e8e8e8;
+    --accent: #7C6FF7;
+    --border: #3d3d3d;
+    --card: #2d2d2d;
+    --cardBorder: #3d3d3d;
 }
-/* ----- Navbar ----- */
+
+body {
+    background: var(--bodyBackground1);
+    color: var(--font);
+}
+
 nav {
     display: flex;
     justify-content: space-between;
     height: 5vh;
-    background-color: var(--mainBackground);
+    border-bottom: 1px solid var(--border);
+    padding: 0 10px;
+    align-items: center;
 }
+
 nav button {
-    border-radius: 50%;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
+    background: #696161;
+    color: var(--font);
+    padding: 5px 10px;
 }
+
+nav button:hover {
+    background: var(--accent);
+    color: white;
+}
+
 /* ----- Main ----- */
 main {
     display: flex;
     justify-content: space-between;
     height: 95vh;
 }
+
 /* ----- Aside ----- */
 aside {
     flex: 1;
-    background-color: var(--mainBackground);
     max-width: 25%;
     height: 95vh;
 }
+
 #asideBox {
-    border: 2px solid black;
+    border: 1px solid var(--border);
     margin: 5%;
     height: 95%;
     border-radius: 7px;
-    box-shadow: 5px 5px 5px 5px var(--shadow);
-    background-color: var(--elementsBacground);
+    box-shadow: 5px 5px 15px 0 var(--shadow);
+    background-color: var(--elementsBackground);
 }
+
 #user {
     display: flex;
     align-items: center;
     padding: 10px;
     gap: 2%;
     overflow-x: hidden;
-    display: flex;
     justify-content: center;
-    align-items: center; 
+    color: var(--font);
 }
+
 #userInfo hr {
     max-width: 75%;
     border: none;
-    border-top: 2px solid white;
+    border-top: 1px solid var(--border);
     width: 75%;
 }
+
 #userInfo {
     word-wrap: break-word;
     min-width: 0;
-    font-size: smaller;
 }
+
 #usPhoto {
     height: 75px;
     width: 75px;
     margin-right: 10px;
-    border: 2px solid black;
+    border: 2px solid var(--border);
     border-radius: 50%;
 }
+
 #usrHr {
     border: none;
-    border-top: 2px solid white;
+    border-top: 1px solid var(--border);
     width: 85%;
     margin: 5px auto;
+}
+
+#categoties {
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+}
+
+/* ----- createTask ----- */
+#taskCreator {
+    display: none;
+    background-color: rgba(0,0,0,0.6);
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+#createTask {
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    border: 1px solid var(--border);
+    box-shadow: 5px 5px 10px 0 var(--shadow);
+    border-radius: 10px;
+    margin: 10% auto;
+    padding: 20px;;
+    gap: 10px;
+    background-color: var(--card);
+}
+#taskTitle, #taskDesc {
+    background: #222222;
+    border: 1px solid var(--border);
+    color: var(--font);
+    border-radius: 8px;
+    padding: 8px;
+    width: 100%;
+}
+#taskTitle::placeholder, #taskDesc::placeholder {
+    color: #666;
+}
+#addTask {
+    background: var(--accent);
+    color: #EEEDFE;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 14px;
+}
+#addTask:hover {
+    background: #6560d4;
 }
 
 /* ----- taskSection ----- */
@@ -90,74 +171,22 @@ aside {
     flex: 3;
     justify-content: space-around;
     align-items: center;
-    background-color: var(--mainBackground);
-    
 }
+
 #pending {
     background-color: var(--pending);
 }
+
 #inProgress {
     background-color: var(--inProgress);
 }
+
 #completed {
     background-color: var(--completed);
 }
-.listClass li button {
-    display: flex;
-    flex-direction: column;
-    width: 90px;
-    height: 20px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-} 
 
-.listClass {
-    min-height: 100px;
-    width: 100%;
-    height: 100vh;
-}
-.listClass li {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 5px;
-    border: 1px solid black;
-    padding: 5px;
-    cursor: grab;
-} 
-.listClass li:active {
-    cursor: grabbing;
-}
-.taskBox  {
-    display: flex;  
-    gap: 10%;
-} 
-
-#taskSection hr {
-    width: 75%;
-}
-
-#createTask {
-    display: flex;
-    flex-direction: column;
-    border: 1px black solid;
-    box-shadow: 10px 10px 10px 0px var(--shadow);
-    border-radius: 10px;
-    padding: 2px;
-    gap: 5px;
-    background-color: var(--elementsBacground);
-}
-#taskTitle {
-    border-radius: 10px;
-}
-#taskDesc {
-    display: flex;
-    border-radius: 10px;
-}
 .taskLists {
-    border: 1px solid black;
+    border: 1px solid var(--border);
     border-radius: 10px;
     height: 80vh;
     width: 20%;
@@ -165,7 +194,17 @@ aside {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    box-shadow: 10px 10px 10px 0 var(--shadow);
+    box-shadow: 5px 5px 15px 0 var(--shadow);
+}
+
+.taskLists h3 {
+    color: var(--font);
+}
+
+#taskSection hr {
+    width: 75%;
+    border: none;
+    border-top: 1px solid var(--border);
 }
 
 .taskUlList {
@@ -175,21 +214,74 @@ aside {
     overflow-y: auto;
     max-height: 90%;
 }
+
+.listClass {
+    min-height: 100px;
+    width: 100%;
+    height: 100vh;
+}
+
+.listClass li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+    padding: 8px;
+    cursor: grab;
+    font-weight: 500;
+    background: var(--card);
+    border: 1px solid var(--cardBorder);
+    color: var(--font);
+    border-radius: 8px;
+}
+
+.listClass li:active {
+    cursor: grabbing;
+}
+
+.listClass li button {
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+    height: 20px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    background: #3a3a4a;
+    border: 1px solid var(--border);
+    color: var(--font);
+    cursor: pointer;
+}
+
+.listClass li button:hover {
+    background: var(--accent);
+    color: white;
+    border-color: var(--accent);
+}
+
+.taskBox {
+    display: flex;
+    gap: 10%;
+}
+
+/* ----- Modal ----- */
 #modal {
     display: none;
-    background-color: rgb(0,0,0);
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0,0.6);
     height: 100%;
     width: 100%;
     position: fixed;
     left: 0;
     top: 0;
 }
+
 #modalWindow {
-    background-color: whitesmoke;
+    background-color: var(--elementsBackground);
+    color: var(--font);
     margin: 10% auto;
     padding: 20px;
-    border: 1px solid black;
+    border: 1px solid var(--border);
     width: 25%;
     height: 45%;
     border-radius: 3%;
@@ -199,34 +291,59 @@ aside {
     align-items: center;
     gap: 5%;
 }
+
 #closeModal {
     position: absolute;
     right: 5%;
+    background: none;
+    border: none;
+    color: var(--font);
+    font-size: 20px;
+    cursor: pointer;
 }
+
+#closeModal:hover {
+    color: var(--accent);
+}
+
 #modalTitle {
-    border: 2px solid black;
+    border: 1px solid var(--border);
     height: 40px;
     margin-top: 5%;
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 5px;
+    background: var(--card);
 }
+
 #modalDescription {
-    border: 2px solid black;
+    border: 1px solid var(--border);
     height: 65%;
     width: 90%;
     border-radius: 2%;
     padding: 5px;
     word-wrap: break-word;
+    background: var(--card);
 }
+
 #deleteTask {
     width: 70%;
-    height: 20px;
+    height: 30px;
     position: absolute;
     bottom: 5%;
     border-radius: 5px;
+    background: #5a2a2a;
+    border: 1px solid #7a3a3a;
+    color: #ffaaaa;
+    cursor: pointer;
 }
+
+#deleteTask:hover {
+    background: #7a2a2a;
+}
+
 .modalBtn, .closeModal, #deleteTask {
     cursor: pointer;
 }

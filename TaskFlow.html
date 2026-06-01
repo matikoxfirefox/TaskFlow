@@ -9,13 +9,12 @@
 <body>
 <!--Górny pasek z narzędziami-->
     <nav>
-        <button id="listWrap" class="nav-btns">Lista</button>
         <div id="rBtns">
-            <button id="dlMode" class="nav-btns">DL</button>
+            <button id="creatorModal" class="nav-btns">+ Dodaj zadanie</button>
             <button id="settings" class="nav-btns">Ustawienia</button>
         </div>
     </nav>
-    <hr>
+    
 <!--Część dla uzytkownika i kategorii tasków-->
     <main>
         <aside>
@@ -27,26 +26,28 @@
                     <div id="userInfo">
                         <h3 id="userName">User Name</h3>
                         <hr>
-                        <p id="userMail">ExamplerUserMail@gmail.com</p>
+                        <p id="userMail">ExampleUserMail@gmail.com</p>
                     </div>
                 </section>
                 <hr id="usrHr">
                 <section id="categoties">
-                    <!--In progress...-->
                 </section>
             </section>
         </aside>
     <!--Główny element z taskami-->
         <section id="taskSection">
-            <div id="createTask">
-                <input type="text" name="taskTitle" id="taskTitle" required placeholder="Tytuł" maxlength="20">
-                <!--suppress HtmlUnknownAttribute -->
-                <textarea type="text" name="taskDesc" id="taskDesc" placeholder="Opis"
-                cols="20" rows="20" maxlength="583" ></textarea>
-                <button id="addTask">Dodaj</button>
+            <div id="taskCreator">
+                <div id="createTask">
+                    <button id="closeCreator">&times;</button>
+                    <input type="text" name="taskTitle" id="taskTitle" required placeholder="Tytuł" maxlength="20">
+                    <!--suppress HtmlUnknownAttribute -->
+                    <textarea type="text" name="taskDesc" id="taskDesc" placeholder="Opis"
+                    cols="20" rows="20" maxlength="583" ></textarea>
+                    <button id="addTask">Dodaj</button>
+                </div>
             </div>
             <div id="pending" class="taskLists">
-                <h3 style="padding-top: 5px">Oczekujące</h3>
+                <h3 style="padding-top: 5px">Oczekujące</h3> <h3 id="pendingNr"></h3>
                 <hr>
                 <div class="taskUlList">
                     <ul id="pendingList" class="listClass" style="list-style: none;" ondrop="changeStatus(event)" ondragover="oDrop(event)" >
@@ -54,7 +55,7 @@
                 </div>
             </div>
             <div id="inProgress" class="taskLists">
-                <h3 style="padding-top: 5px">W trakcie</h3>
+                <h3 style="padding-top: 5px">W trakcie</h3> <h3 id="inProgressNr"></h3>
                 <hr>
                 <div class="taskUlList">
                     <ul id="inProgressList" class="listClass"  style="list-style: none;" ondrop="changeStatus(event)" ondragover="oDrop(event)" >
@@ -62,13 +63,14 @@
                 </div>
             </div>
             <div id="completed" class="taskLists">
-                <h3 style="padding-top: 5px">Skończone</h3>
+                <h3 style="padding-top: 5px">Skończone</h3> <h3 id="completedNr"></h3>
                 <hr>
                 <div class="taskUlList">
                     <ul id="completedList" class="listClass"  style="list-style: none;" ondrop="changeStatus(event)" ondragover="oDrop(event)" >
                     </ul>
                 </div>
             </div>
+            <!------------- Modal ------------->
             <div id="modal">
                 <div id="modalWindow">
                     <button id="closeModal">&times;</button>

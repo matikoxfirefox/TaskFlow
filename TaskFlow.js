@@ -9,6 +9,8 @@ const modalTitle = document.querySelector("#modalTitle");
 const modalDescription = document.querySelector("#modalDescription");
 const deleteTask = document.querySelector("#deleteTask");
 const modal = document.querySelector("#modal");
+const creatorModal = document.querySelector("#creatorModal");
+const taskCreator = document.querySelector("#taskCreator");
 closeModal.classList.add("closeModal")
 let taskArr = [];
 let holderItem;
@@ -20,7 +22,14 @@ window.onload = () => {
         renderTask();
     }
 }
-
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+    if (event.target == taskCreator) {
+        taskCreator.style.display = "none";
+    }
+}
 addTask.addEventListener('click', () => {
     const tdVal = taskDesc.value;
     const ttVal = taskTitle.value;
@@ -30,6 +39,7 @@ addTask.addEventListener('click', () => {
     } else {
         taskDesc.value = "";
         taskTitle.value = "";
+        taskCreator.style.display = "none";
     }
     const task = {
         title: ttVal,
@@ -75,8 +85,18 @@ function renderTask() {
             completedList.appendChild(newLi);
         }
         showModal(arrEl, newLi);
+        taskCounter();
     })
     localStorage.setItem("tasks", JSON.stringify(taskArr));
+}
+function taskCounter () {
+    const pendingArr = taskArr.filter((task) => task.status === "pending").length
+    const inProgressArr = taskArr.filter((task) => task.status === "inProgress").length
+    const completedArr = taskArr.filter((task) => task.status === "completed").length
+    
+    document.querySelector("#pendingNr").textContent = pendingArr;
+    document.querySelector("#inProgressNr").textContent = inProgressArr;
+    document.querySelector("#completedNr").textContent = completedArr;
 }
 function oDrop (event){
     event.preventDefault();
@@ -118,12 +138,14 @@ function showModal(modalEl, newLi) {
         })
     })
 };
-window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+
 closeModal.addEventListener("click", () => {
     modal.style.display = "none";
 })
-JSON.parse(localStorage.getItem("tasks"))
+creatorModal.addEventListener('click', ()=>{
+    taskCreator.style.display = "block";
+})
+document.querySelector("#closeCreator").addEventListener('click', ()=> {
+    taskCreator.style.display = "none"
+})
+JSON.parse(localStorage.getItem("tasks"));
