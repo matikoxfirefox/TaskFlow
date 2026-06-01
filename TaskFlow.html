@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <title>TaskFlow</title>
     <link rel="stylesheet" href="TaskFlow.css">
     <link rel="shortcut icon" href="Assets/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
-<!--Górny pasek z narzędziami-->
+    <!--Górny pasek z narzędziami-->
     <nav>
+        <div id="webTitle">
+            <h2>TaskFlow</h2>
+        </div>
         <div id="rBtns">
             <button id="creatorModal" class="nav-btns">+ Dodaj zadanie</button>
-            <button id="settings" class="nav-btns">Ustawienia</button>
+            <button id="creatorModal" class="nav-btns">🗑️ Usuń wszystkie zadania</button>
         </div>
     </nav>
-    
-<!--Część dla uzytkownika i kategorii tasków-->
+
+    <!--Część dla uzytkownika i kategorii tasków-->
     <main>
         <aside>
             <section id="asideBox">
@@ -34,39 +39,47 @@
                 </section>
             </section>
         </aside>
-    <!--Główny element z taskami-->
+        <!--Główny element z taskami-->
         <section id="taskSection">
             <div id="taskCreator">
                 <div id="createTask">
-                    <button id="closeCreator">&times;</button>
-                    <input type="text" name="taskTitle" id="taskTitle" required placeholder="Tytuł" maxlength="20">
+                    <div id="creatorTop">
+                        <input type="text" name="taskTitle" id="taskTitle" required placeholder="Tytuł" maxlength="20">
+                        <button id="closeCreator">&times;</button>
+                    </div>
                     <!--suppress HtmlUnknownAttribute -->
-                    <textarea type="text" name="taskDesc" id="taskDesc" placeholder="Opis"
-                    cols="20" rows="20" maxlength="583" ></textarea>
+                    <textarea type="text" name="taskDesc" id="taskDesc" placeholder="Opis" cols="20" rows="20"
+                        maxlength="583"></textarea>
                     <button id="addTask">Dodaj</button>
                 </div>
             </div>
             <div id="pending" class="taskLists">
-                <h3 style="padding-top: 5px">Oczekujące</h3> <h3 id="pendingNr"></h3>
+                <h3 style="padding-top: 5px">Oczekujące</h3>
+                <h3 id="pendingNr"></h3>
                 <hr>
                 <div class="taskUlList">
-                    <ul id="pendingList" class="listClass" style="list-style: none;" ondrop="changeStatus(event)" ondragover="oDrop(event)" >
+                    <ul id="pendingList" class="listClass" style="list-style: none;" ondrop="changeStatus(event)"
+                        ondragover="oDrop(event)">
                     </ul>
                 </div>
             </div>
             <div id="inProgress" class="taskLists">
-                <h3 style="padding-top: 5px">W trakcie</h3> <h3 id="inProgressNr"></h3>
+                <h3 style="padding-top: 5px">W trakcie</h3>
+                <h3 id="inProgressNr"></h3>
                 <hr>
                 <div class="taskUlList">
-                    <ul id="inProgressList" class="listClass"  style="list-style: none;" ondrop="changeStatus(event)" ondragover="oDrop(event)" >
+                    <ul id="inProgressList" class="listClass" style="list-style: none;" ondrop="changeStatus(event)"
+                        ondragover="oDrop(event)">
                     </ul>
                 </div>
             </div>
             <div id="completed" class="taskLists">
-                <h3 style="padding-top: 5px">Skończone</h3> <h3 id="completedNr"></h3>
+                <h3 style="padding-top: 5px">Skończone</h3>
+                <h3 id="completedNr"></h3>
                 <hr>
                 <div class="taskUlList">
-                    <ul id="completedList" class="listClass"  style="list-style: none;" ondrop="changeStatus(event)" ondragover="oDrop(event)" >
+                    <ul id="completedList" class="listClass" style="list-style: none;" ondrop="changeStatus(event)"
+                        ondragover="oDrop(event)">
                     </ul>
                 </div>
             </div>
@@ -81,6 +94,7 @@
             </div>
         </section>
     </main>
-<script src="TaskFlow.js"></script>
+    <script src="TaskFlow.js"></script>
 </body>
+
 </html>

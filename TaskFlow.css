@@ -118,6 +118,31 @@ aside {
 }
 
 /* ----- createTask ----- */
+#closeCreator {
+    width: 30px;
+    height: 30px;
+    background: #5a2a2a;
+    border: 1px solid #742a2a;
+    color: #bd5f5f;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#creatorTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#closeCreator:hover {
+    width: 30px;
+    height: 30px;
+    background: #7e2e2e;
+    border: 1px solid #742a2a;
+    color: #bb8181;
+    border-radius: 5px;
+    cursor: pointer;
+}
 #taskCreator {
     display: none;
     background-color: rgba(0,0,0,0.6);
@@ -139,13 +164,16 @@ aside {
     gap: 10px;
     background-color: var(--card);
 }
+#taskTitle {
+    width: 93%;
+}
 #taskTitle, #taskDesc {
     background: #222222;
     border: 1px solid var(--border);
     color: var(--font);
     border-radius: 8px;
     padding: 8px;
-    width: 100%;
+    
 }
 #taskTitle::placeholder, #taskDesc::placeholder {
     color: #666;
