@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <title>TaskFlow</title>
     <link rel="stylesheet" href="TaskFlow.css">
-    <link rel="shortcut icon" href="Assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="Assets/logo3.png" type="image/x-icon">
 </head>
 
 <body>
@@ -34,7 +34,11 @@
                         <p id="userMail">ExampleUserMail@gmail.com</p>
                     </div>
                 </section>
-                <hr id="usrHr">
+                <hr class="usrHr">
+                <div id="summary">
+                    <h3 id="totalTaskCount">Zadań łącznie: <span id="totalCount"></span></h3>
+                </div>
+                <hr class="usrHr">
                 <section id="categoties">
                 </section>
             </section>
@@ -44,9 +48,10 @@
             <div id="taskCreator">
                 <div id="createTask">
                     <div id="creatorTop">
-                        <input type="text" name="taskTitle" id="taskTitle" required placeholder="Tytuł" maxlength="20">
+                        <h2>Dodaj zadanie</h2>
                         <button id="closeCreator">&times;</button>
                     </div>
+                    <input type="text" name="taskTitle" id="taskTitle" required placeholder="Tytuł" maxlength="20">
                     <!--suppress HtmlUnknownAttribute -->
                     <textarea type="text" name="taskDesc" id="taskDesc" placeholder="Opis" cols="20" rows="20"
                         maxlength="583"></textarea>
@@ -54,8 +59,13 @@
                 </div>
             </div>
             <div id="pending" class="taskLists">
-                <h3 style="padding-top: 5px">Oczekujące</h3>
-                <h3 id="pendingNr"></h3>
+                <div class="topList">
+                    <div class="listDesc">
+                        <p id="pendingEmote">⌛</p>
+                        <h3>Oczekujące</h3>
+                    </div>
+                    <h3 id="pendingNr"></h3>
+                </div>
                 <hr>
                 <div class="taskUlList">
                     <ul id="pendingList" class="listClass" style="list-style: none;" ondrop="changeStatus(event)"
@@ -64,8 +74,13 @@
                 </div>
             </div>
             <div id="inProgress" class="taskLists">
-                <h3 style="padding-top: 5px">W trakcie</h3>
-                <h3 id="inProgressNr"></h3>
+                <div class="topList">
+                    <div class="listDesc">
+                        <p id="inProgressEmote">⚡</p>
+                        <h3>W trakcie</h3>
+                    </div>
+                    <h3 id="inProgressNr"></h3>
+                </div>
                 <hr>
                 <div class="taskUlList">
                     <ul id="inProgressList" class="listClass" style="list-style: none;" ondrop="changeStatus(event)"
@@ -74,8 +89,13 @@
                 </div>
             </div>
             <div id="completed" class="taskLists">
-                <h3 style="padding-top: 5px">Skończone</h3>
-                <h3 id="completedNr"></h3>
+                <div class="topList">
+                    <div class="listDesc">
+                        <p id="completedEmote">✓</p>
+                        <h3>Skończone</h3>
+                    </div>
+                    <h3 id="completedNr"></h3>
+                </div>
                 <hr>
                 <div class="taskUlList">
                     <ul id="completedList" class="listClass" style="list-style: none;" ondrop="changeStatus(event)"
@@ -93,6 +113,8 @@
                 </div>
             </div>
         </section>
+        <!------------- Usuwanie tasków modal ------------->
+
     </main>
     <script src="TaskFlow.js"></script>
 </body>

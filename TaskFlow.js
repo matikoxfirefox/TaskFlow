@@ -93,7 +93,8 @@ function taskCounter () {
     const pendingArr = taskArr.filter((task) => task.status === "pending").length
     const inProgressArr = taskArr.filter((task) => task.status === "inProgress").length
     const completedArr = taskArr.filter((task) => task.status === "completed").length
-    
+
+    document.querySelector("#totalCount").innerHTML = taskArr.length;
     document.querySelector("#pendingNr").textContent = pendingArr;
     document.querySelector("#inProgressNr").textContent = inProgressArr;
     document.querySelector("#completedNr").textContent = completedArr;

@@ -6,19 +6,16 @@
 }
 
 :root {
-    --bodyBackground1: #2c2c2c;
+    --bodyBackground1: #242323;
     --bodyBackground2: #2c2c2c;
-    --elementsBackground: #252525;
+    --elementsBackground: #2a292b;
     --completed: #382929;
     --inProgress: #2c2c42;
     --pending: #213021;
-    --completedLi: #3a2a2a;
-    --inProgressLi: #2a2a3a;
-    --pendingLi: #2a3a2a;
-    --shadow: rgba(0,0,0,0.4);
+    --shadow: rgba(0, 0, 0, 0.4);
     --font: #e8e8e8;
     --accent: #7C6FF7;
-    --border: #3d3d3d;
+    --border: #464343;
     --card: #2d2d2d;
     --cardBorder: #3d3d3d;
 }
@@ -35,6 +32,7 @@ nav {
     border-bottom: 1px solid var(--border);
     padding: 0 10px;
     align-items: center;
+    background: var(--elementsBackground);
 }
 
 nav button {
@@ -60,17 +58,15 @@ main {
 
 /* ----- Aside ----- */
 aside {
-    flex: 1;
+    width: 20%;
     max-width: 25%;
     height: 95vh;
 }
 
 #asideBox {
     border: 1px solid var(--border);
-    margin: 5%;
-    height: 95%;
-    border-radius: 7px;
-    box-shadow: 5px 5px 15px 0 var(--shadow);
+    height: 100%;
+    border-top: none;
     background-color: var(--elementsBackground);
 }
 
@@ -104,29 +100,50 @@ aside {
     border-radius: 50%;
 }
 
-#usrHr {
+.usrHr {
     border: none;
     border-top: 1px solid var(--border);
     width: 85%;
     margin: 5px auto;
 }
-
+#summary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#totalTaskCount {
+    display: flex;
+    height: 50px;
+    margin: 2%;
+    justify-content: center;
+    align-items: center;
+    background: #373352a2;
+    border: 1px solid #4b3eaca2;
+    width: 75%;
+    box-shadow: 5px 5px 2px 0 var(--shadow);
+    border-radius: 10px;
+    margin: 10px;
+}
 #categoties {
     display: flex;
     justify-content: center;
     padding-top: 15px;
 }
+#totalCount {
+    margin-left: 2%;
+}
 
 /* ----- createTask ----- */
 #closeCreator {
-    width: 30px;
+    width: 40px;
     height: 30px;
     background: #5a2a2a;
     border: 1px solid #742a2a;
     color: #bd5f5f;
-    border-radius: 5px;
+    border-radius: 7px;
     cursor: pointer;
 }
+
 #creatorTop {
     display: flex;
     justify-content: space-between;
@@ -135,23 +152,21 @@ aside {
 }
 
 #closeCreator:hover {
-    width: 30px;
-    height: 30px;
     background: #7e2e2e;
     border: 1px solid #742a2a;
     color: #bb8181;
-    border-radius: 5px;
-    cursor: pointer;
 }
+
 #taskCreator {
     display: none;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
     height: 100%;
     width: 100%;
     position: fixed;
     left: 0;
     top: 0;
 }
+
 #createTask {
     display: flex;
     flex-direction: column;
@@ -160,24 +175,26 @@ aside {
     box-shadow: 5px 5px 10px 0 var(--shadow);
     border-radius: 10px;
     margin: 10% auto;
-    padding: 20px;;
+    padding: 20px;
     gap: 10px;
     background-color: var(--card);
 }
-#taskTitle {
-    width: 93%;
-}
-#taskTitle, #taskDesc {
+
+#taskTitle,
+#taskDesc {
     background: #222222;
     border: 1px solid var(--border);
     color: var(--font);
     border-radius: 8px;
     padding: 8px;
-    
+    width: 100%;
 }
-#taskTitle::placeholder, #taskDesc::placeholder {
+
+#taskTitle::placeholder,
+#taskDesc::placeholder {
     color: #666;
 }
+
 #addTask {
     background: var(--accent);
     color: #EEEDFE;
@@ -189,6 +206,7 @@ aside {
     font-weight: 500;
     font-size: 14px;
 }
+
 #addTask:hover {
     background: #6560d4;
 }
@@ -200,29 +218,59 @@ aside {
     justify-content: space-around;
     align-items: center;
 }
-
-#pending {
-    background-color: var(--pending);
+.topList {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding: 2%;
+    justify-content: space-between;
+    padding-top: 5%;
+    padding-bottom: 0;
 }
-
-#inProgress {
-    background-color: var(--inProgress);
+.listDesc {
+    display: flex;
+    gap: 5%;
+    width: 80%;
+    align-items: center;
 }
-
-#completed {
-    background-color: var(--completed);
+#pendingEmote {
+    background: #d4a95838;
+    border: 1px solid #e9ad3d;
+    border-radius: 10px;
+    padding: 5px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
 }
-
+#inProgressEmote {
+    background: #7504f738;
+    border: 1px solid #7504f77c;
+    border-radius: 10px;
+    padding: 5px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+}
+#completedEmote {
+    background: #067e0638;
+    border: 1px solid #05690596;
+    border-radius: 10px;
+    padding: 5px;
+    width: 35px;
+    display: flex;
+    justify-content: center;
+}
 .taskLists {
     border: 1px solid var(--border);
-    border-radius: 10px;
-    height: 80vh;
-    width: 20%;
+    border-radius: 25px;
+    height: 90vh;
+    width: 25%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
     box-shadow: 5px 5px 15px 0 var(--shadow);
+    background: var(--elementsBackground);
 }
 
 .taskLists h3 {
@@ -241,45 +289,62 @@ aside {
     width: 90%;
     overflow-y: auto;
     max-height: 90%;
+    
 }
-
 .listClass {
     min-height: 100px;
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .listClass li {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     margin-top: 5px;
     padding: 8px;
+    height: 65px;
     cursor: grab;
     font-weight: 500;
     background: var(--card);
     border: 1px solid var(--cardBorder);
     color: var(--font);
-    border-radius: 8px;
+    border-radius: 15px;
+    font-weight: bold;
 }
 
 .listClass li:active {
     cursor: grabbing;
 }
-
-.listClass li button {
-    display: flex;
-    flex-direction: column;
-    width: 90px;
-    height: 20px;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    background: #3a3a4a;
-    border: 1px solid var(--border);
-    color: var(--font);
-    cursor: pointer;
+#pendingList button {
+    background: #997c4738;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid #917033;
+    width: 100px;
+    color: #dda53d;
+    font-weight: 600;
+}
+#inProgressList button {
+    background: #5916a538;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid #6423ada2;
+    width: 100px;
+    color: #7f36d3;
+    font-weight: 600;
+}
+#completedList button {
+    background: #0d490d38;
+    height: 35px;
+    border-radius: 10px;
+    border: 1px solid #1b741b96;
+    width: 100px;
+    color: #159415;
+    font-weight: 600;
 }
 
 .listClass li button:hover {
@@ -296,7 +361,7 @@ aside {
 /* ----- Modal ----- */
 #modal {
     display: none;
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
     height: 100%;
     width: 100%;
     position: fixed;
@@ -362,8 +427,8 @@ aside {
     position: absolute;
     bottom: 5%;
     border-radius: 5px;
-    background: #5a2a2a;
-    border: 1px solid #7a3a3a;
+    background: #532828;
+    border: 1px solid #862222;
     color: #ffaaaa;
     cursor: pointer;
 }
