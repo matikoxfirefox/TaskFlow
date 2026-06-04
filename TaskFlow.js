@@ -11,6 +11,11 @@ const deleteTask = document.querySelector("#deleteTask");
 const modal = document.querySelector("#modal");
 const creatorModal = document.querySelector("#creatorModal");
 const taskCreator = document.querySelector("#taskCreator");
+const usrPhoto = document.querySelector("#usrPhoto");
+const deleteAllTasks = document.querySelector("#deleteAllTasks");
+const delModal = document.querySelector("#delModal");
+const accept = document.querySelector("#accept");
+const deny = document.querySelector("#deny");
 closeModal.classList.add("closeModal")
 let taskArr = [];
 let holderItem;
@@ -19,6 +24,10 @@ window.onload = () => {
     if (taskArr.length == 0) {
         const lsList = JSON.parse(localStorage.getItem("tasks"));
         taskArr = lsList || [];
+        document.querySelector("#totalCount").innerHTML = 0;
+        document.querySelector("#pendingNr").textContent = 0;
+        document.querySelector("#inProgressNr").textContent = 0;
+        document.querySelector("#completedNr").textContent = 0;
         renderTask();
     }
 }
@@ -28,6 +37,9 @@ window.onclick = function (event) {
     }
     if (event.target == taskCreator) {
         taskCreator.style.display = "none";
+    }
+    if (event.target == delModal) {
+        delModal.style.display = "none";
     }
 }
 addTask.addEventListener('click', () => {
@@ -60,7 +72,9 @@ function renderTask() {
         newLi.dataset.id = arrEl.id
         const taskBox = document.createElement("div");
         const modalBtn = document.createElement("button");
-        newLi.innerHTML = arrEl.title;
+        const span = document.createElement("span");
+        span.innerHTML = arrEl.title
+        span.classList.add("taskSpan");
         modalBtn.classList.add("modalBtn");
         taskBox.classList.add("taskBox");
         newLi.draggable = true;
@@ -69,18 +83,21 @@ function renderTask() {
         if (arrEl.status === "pending") {
             modalBtn.textContent = "Szczegóły";
             taskBox.appendChild(modalBtn);
+            newLi.appendChild(span);
             newLi.appendChild(taskBox);
             pendingList.appendChild(newLi);
         }
         if (arrEl.status === "inProgress") {
             modalBtn.textContent = "Szczegóły";
             taskBox.appendChild(modalBtn);
+            newLi.appendChild(span);
             newLi.appendChild(taskBox);
             inProgressList.appendChild(newLi);
         }
         if (arrEl.status === "completed") {
             modalBtn.textContent = "Szczegóły";
             taskBox.appendChild(modalBtn);
+            newLi.appendChild(span);
             newLi.appendChild(taskBox);
             completedList.appendChild(newLi);
         }
@@ -88,16 +105,6 @@ function renderTask() {
         taskCounter();
     })
     localStorage.setItem("tasks", JSON.stringify(taskArr));
-}
-function taskCounter () {
-    const pendingArr = taskArr.filter((task) => task.status === "pending").length
-    const inProgressArr = taskArr.filter((task) => task.status === "inProgress").length
-    const completedArr = taskArr.filter((task) => task.status === "completed").length
-
-    document.querySelector("#totalCount").innerHTML = taskArr.length;
-    document.querySelector("#pendingNr").textContent = pendingArr;
-    document.querySelector("#inProgressNr").textContent = inProgressArr;
-    document.querySelector("#completedNr").textContent = completedArr;
 }
 function oDrop (event){
     event.preventDefault();
@@ -139,14 +146,45 @@ function showModal(modalEl, newLi) {
         })
     })
 };
+function taskCounter () {
+    const pendingArr = taskArr.filter((task) => task.status === "pending").length
+    const inProgressArr = taskArr.filter((task) => task.status === "inProgress").length
+    const completedArr = taskArr.filter((task) => task.status === "completed").length
 
+    document.querySelector("#totalCount").innerHTML = taskArr.length;
+    document.querySelector("#pendingNr").textContent = pendingArr;
+    document.querySelector("#inProgressNr").textContent = inProgressArr;
+    document.querySelector("#completedNr").textContent = completedArr;
+}
 closeModal.addEventListener("click", () => {
     modal.style.display = "none";
 })
+
 creatorModal.addEventListener('click', ()=>{
     taskCreator.style.display = "block";
 })
+
 document.querySelector("#closeCreator").addEventListener('click', ()=> {
     taskCreator.style.display = "none"
+})
+
+deleteAllTasks.addEventListener("click", ()=> {
+    delModal.style.display = "block";
+})
+
+deny.addEventListener("click", ()=> {
+    delModal.style.display = "none"
+})
+
+accept.addEventListener("click", ()=>{
+    if (taskArr.length === 0 ){
+        alert("Brak zadań do usunięcia!")
+        delModal.style.display = "none";
+    } else {
+        taskArr = [];
+        delModal.style.display = "none";
+        renderTask();
+        taskCounter();
+    }
 })
 JSON.parse(localStorage.getItem("tasks"));
