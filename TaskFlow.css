@@ -620,6 +620,11 @@ aside {
     color: rgba(5, 88, 5, 0.973);
     cursor: pointer;
 }
+@media (max-width: 1545px) {
+    #user {
+        word-wrap: break-word;
+    }
+}
 @media (max-width: 1024px) {
     main {
         flex-direction: column;
@@ -640,6 +645,9 @@ aside {
     }
     #delModalBtns {
         gap: 10px;
+    }
+    #user {
+        word-wrap: break-word;
     }
 }
 @media (max-width: 768px) {
