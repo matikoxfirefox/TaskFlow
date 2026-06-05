@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TaskFlow</title>
+    <link rel="stylesheet" href="TaskFlow.css">
+    <link rel="shortcut icon" href="Assets/logo3.png" type="image/x-icon">
+</head>
+
+<body>
+    <!--Górny pasek z narzędziami-->
+    <nav>
+        <div id="webTitle">
+            <h2>TaskFlow</h2>
+        </div>
+        <div id="navBtns">
+            <button id="creatorModal" class="nav-btns">+ Dodaj zadanie</button>
+            <button id="deleteAllTasks" class="nav-btns">🗑️ Usuń wszystkie zadania</button>
+        </div>
+    </nav>
+
+    <!--Część dla uzytkownika i kategorii tasków-->
+    <main>
+        <aside>
+            <section id="asideBox">
+                <section id="user">
+                    <div id="userPhoto">
+                        <img id="usrPhoto" src="Assets/profile.png" alt="userPhoto" draggable="false">
+                    </div>
+                    <div id="userInfo">
+                        <h3 id="userName">User Name</h3>
+                        <hr>
+                        <p id="userMail">ExampleUserMail@gmail.com</p>
+                    </div>
+                </section>
+                <hr class="usrHr">
+                <div id="summary">
+                    <h3 id="totalTaskCount">Zadań łącznie: <span id="totalCount"></span></h3>
+                </div>
+                <hr class="usrHr">
+                <section id="categoties">
+                </section>
+            </section>
+        </aside>
+        <!--Główny element z taskami-->
+        <section id="taskSection">
+            <div id="taskCreator">
+                <div id="createTask">
+                    <div id="creatorTop">
+                        <h2>Dodaj zadanie</h2>
+                        <button id="closeCreator">&times;</button>
+                    </div>
+                    <input type="text" name="taskTitle" id="taskTitle" required placeholder="Tytuł" maxlength="25">
+                    <!--suppress HtmlUnknownAttribute -->
+                    <textarea type="text" name="taskDesc" id="taskDesc" placeholder="Opis" cols="20" rows="20"
+                        maxlength="583"></textarea>
+                    <button id="addTask">Dodaj</button>
+                </div>
+            </div>
+            <div id="pending" class="taskLists">
+                <div class="topList">
+                    <div class="listDesc">
+                        <p id="pendingEmote">⌛</p>
+                        <h3>Oczekujące</h3>
+                    </div>
+                    <h4 id="pendingNr"></h4>
+                </div>
+                <hr>
+                <div class="taskUlList">
+                    <ul id="pendingList" class="listClass" style="list-style: none;" ondrop="changeStatus(event)"
+                        ondragover="oDrop(event)">
+                    </ul>
+                </div>
+            </div>
+            <div id="inProgress" class="taskLists">
+                <div class="topList">
+                    <div class="listDesc">
+                        <p id="inProgressEmote">⚡</p>
+                        <h3>W trakcie</h3>
+                    </div>
+                    <h4 id="inProgressNr"></h4>
+                </div>
+                <hr>
+                <div class="taskUlList">
+                    <ul id="inProgressList" class="listClass" style="list-style: none;" ondrop="changeStatus(event)"
+                        ondragover="oDrop(event)">
+                    </ul>
+                </div>
+            </div>
+            <div id="completed" class="taskLists">
+                <div class="topList">
+                    <div class="listDesc">
+                        <p id="completedEmote">✓</p>
+                        <h3>Skończone</h3>
+                    </div>
+                    <h4 id="completedNr"></h4>
+                </div>
+                <hr>
+                <div class="taskUlList">
+                    <ul id="completedList" class="listClass" style="list-style: none;" ondrop="changeStatus(event)"
+                        ondragover="oDrop(event)">
+                    </ul>
+                </div>
+            </div>
+            <!------------- Modal ------------->
+            <div id="modal">
+                <div id="modalWindow">
+                    <button id="closeModal">&times;</button>
+                    <div id="modalTitle"></div>
+                    <div id="modalDescription"></div>
+                    <button id="deleteTask">Usuń</button>
+                </div>
+            </div>
+        </section>
+        <!------------- Usuwanie tasków modal ------------->
+        <div id="delModal">
+            <div id="delModalWindow">
+                <h3 id="question">Czy na pewno chcesz usunąć?</h3>
+                <div id="delModalBtns">
+                    <button id="accept">Tak</button>
+                    <button id="deny">Nie</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="TaskFlow.js"></script>
+</body>
+
+</html>
