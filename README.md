@@ -15,4 +15,4 @@ Technologie
 - JavaScript
 
 Uruchomienie
-- Pobierz pliki projektu i otwórz plik index.html w przeglądarce.
+- Pobierz pliki projektu i otwórz plik TaskFlow.html w przeglądarce.
