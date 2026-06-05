@@ -649,6 +649,12 @@ aside {
     #user {
         word-wrap: break-word;
     }
+    #modalWindow {
+        width: 40%;
+    }
+    #modalTitle {
+        width: 55%;
+    }
 }
 @media (max-width: 768px) {
     main {
@@ -675,6 +681,15 @@ aside {
     #delModalBtns {
         gap: 10px;
     }
+    #createTask {
+        width: 60%;
+    }
+    #modalWindow {
+        width: 60%;
+    }
+    #modalTitle {
+        width: 55%;
+    }
 }
 @media (max-width: 474px) {
     nav {
@@ -683,6 +698,15 @@ aside {
     }
     #delModalWindow {
         width: 70%;
+    }
+    #createTask {
+        width: 80%;
+    }
+    #modalWindow {
+        width: 80%;
+    }
+    #modalTitle {
+        width: 65%;
     }
 }
 @media (max-width: 360px) {
@@ -698,9 +722,35 @@ aside {
         gap: 10px;
         width: 50%;
     }
+    #createTask {
+        width: 80%;
+    }
+    #modalWindow {
+        width: 80%;
+    }
+    #modalTitle {
+        width: 65%;
+    }
 }
 @media (min-width: 2560px) {
     * {
         font-size: large;
+    }
+    #modalWindow {
+        width: 30%;
+    }
+    #modalTitle {
+        font-size: x-large;
+        font-weight: bold;
+    }
+    #modalDescription {
+        font-size: x-large;
+        font-weight: bold;
+    }
+    #modalTitle {
+        width: 55%;
+    }
+    #deleteTask {
+        height: 50px;
     }
 }
