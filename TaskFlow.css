@@ -221,6 +221,7 @@ aside {
     border-radius: 8px;
     padding: 8px;
     width: 100%;
+    resize: none;
 }
 
 #taskTitle::placeholder,
