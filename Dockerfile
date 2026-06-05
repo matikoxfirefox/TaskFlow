@@ -1,3 +1,4 @@
 FROM nginx:alpine
 COPY . /usr/share/nginx/html
-EXPOSE 10204
+RUN chmod -R 755 /usr/share/nginx/html
+EXPOSE 10205
