@@ -620,3 +620,79 @@ aside {
     color: rgba(5, 88, 5, 0.973);
     cursor: pointer;
 }
+@media (max-width: 1024px) {
+    main {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #asideBox {
+        width: 100vw;
+    }
+    #taskSection {
+        gap: 10px;
+    }
+    #question {
+        padding-left: 5px;
+    }
+    #delModalWindow {
+        gap: 10px;
+        width: 50%;
+    }
+    #delModalBtns {
+        gap: 10px;
+    }
+}
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+        gap: 10px;
+    }
+    #asideBox {
+        width: 100vw;
+    }
+    #taskSection {
+        flex-direction: column;
+        gap: 10px;
+    }
+    .taskLists {
+        width: 90%;
+    }
+    #question {
+        padding-left: 5px;
+    }
+    #delModalWindow {
+        gap: 10px;
+        width: 50%;
+    }
+    #delModalBtns {
+        gap: 10px;
+    }
+}
+@media (max-width: 474px) {
+    nav {
+        height: 10vh;
+        flex-direction: column;
+    }
+    #delModalWindow {
+        width: 70%;
+    }
+}
+@media (max-width: 360px) {
+    #deleteAllTasks {
+        width: 150px;
+        height: 100%;
+    }
+    #creatorModal {
+        width: 100px;
+        height: 100%;
+    }
+    #delModalWindow {
+        gap: 10px;
+        width: 50%;
+    }
+}
+@media (min-width: 2560px) {
+    * {
+        font-size: large;
+    }
+}
