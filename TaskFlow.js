@@ -186,5 +186,6 @@ accept.addEventListener("click", ()=>{
         renderTask();
         taskCounter();
     }
-})
+}) 
+
 JSON.parse(localStorage.getItem("tasks"));
