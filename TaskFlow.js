@@ -102,9 +102,9 @@ function renderTask() {
             completedList.appendChild(newLi);
         }
         showModal(arrEl, newLi);
-        taskCounter();
     })
     localStorage.setItem("tasks", JSON.stringify(taskArr));
+    taskCounter();
 }
 function oDrop (event){
     event.preventDefault();
