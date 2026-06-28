@@ -3,7 +3,7 @@ TaskFlow
 
 Funkcjonalności
 
-Tworzenie zadań z tytułem i opisem
+- Tworzenie zadań z tytułem i opisem
 - Podgląd szczegółów zadania w oknie modalnym
 - Przeciąganie zadań między statusami (Oczekujące / W trakcie / Skończone) za pomocą Drag & Drop
 - Licznik zadań w każdej kolumnie
